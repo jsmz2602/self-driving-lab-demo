@@ -30,10 +30,11 @@ class SensorSimulatorLight(SensorSimulator):
         self.red_interp = self.create_interpolator("neopixel_red.csv")
         self.green_interp = self.create_interpolator("neopixel_green.csv")
         self.blue_interp = self.create_interpolator("neopixel_blue.csv")
+        self._channel_wavelengths = [ch[0] for ch in CHANNEL_WAVELENGTHS_MEAN_FWHM]
 
     @property
     def channel_wavelengths(self):
-        return CHANNEL_WAVELENGTHS_MEAN_FWHM
+        return self._channel_wavelengths
 
     @property
     def channel_hex_colors(self):
